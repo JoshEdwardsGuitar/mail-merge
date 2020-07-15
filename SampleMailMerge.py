@@ -1,9 +1,7 @@
 # ______________________________________________________________________________________________________________________
 # ______________________________________________________________________________________________________________________
 #
-#
 # BATCH MAILMERGE DOCX TEMPLATES WITH PYTHON
-#
 # ______________________________________________________________________________________________________________________
 # ______________________________________________________________________________________________________________________
 #
@@ -17,6 +15,8 @@
 # Description: Program performs mailmerge on batch of documents by passing user input field declarations and automated derivatives into set of docx templates.
 # Note: This script has been stripped down from it's original version to protect certain company data and procedures. 
 # Use-Case: Used to batch draft legal documents associated with various types of real estate projects.
+# Dependencies: $ pip install docx-mailmerge
+# Reference: https://pypi.org/project/docx-mailmerge/
 # ______________________________________________________________________________________________________________________
 
 
@@ -47,7 +47,7 @@ President = 'John Doe'
 Secretary = 'Jane Deere'
 Treasurer = 'John Doe'
 EffectiveDate = 'July 15, 2020'
-HOAName = '1405 Main' # 1405 Main Condominiums
+HOAName = '1405 Main' # Root name only. In docs will look like 1405 Main Condominiums or 1405 Main Condominium Association depending on surrounding text.
 HOAAddress = '1405 Main Street, Austin, Texas 78704'
 LegalDescription = 'Lot 11, Block J, FOREST OAKS SECTION 3, according to the map or plat thereof, recorded in Volume 11, Page 1111, Plat Records, Travis County, Texas.'
 NumberOfUnits = 'two (2)'
@@ -160,7 +160,7 @@ def executeMailMerge(template):
         Fee=Fee)    
 
 
-    # NAMING
+    # FILENAME
     # Name the Document.
     document.write(HOAName + ' Condominiums - MERGED ' + template.replace('TEMPLATE ', ''))   
     #document.write('1205 West 36 Half Street' + ' Condominiums - MERGED ' + template.replace('TEMPLATE ', ''))      
@@ -169,20 +169,4 @@ def executeMailMerge(template):
 # EXECUTE
 # Call the main function, which executes mailmerge on each defined template.
 main ()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
